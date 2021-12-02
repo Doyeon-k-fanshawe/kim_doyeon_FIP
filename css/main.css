@@ -1,0 +1,723 @@
+ /*
+Style Name: Site Build 
+Description: FIP
+Author: Doyeon Kim 
+Version: 1.0
+Tags: FIP
+*/
+
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/* ___________________________________________
+
+       CSS Guide
+___________________________________________ */
+
+/* 01. General Styles
+       - Reset
+       - Global
+         - General
+         - Floats
+         - Brand Colors
+         - Font Awesome                       
+   02. CSS Grid
+   03. Site Header
+       - Header
+       - Nav
+   04. Hero
+       - Image
+       - Title
+   05. Review
+      - Image
+      - Text
+   06. FAQ
+      - FAQ box
+      - Contact/Location
+      - Ask Form
+   07. Book
+      - Search Form
+      - Icon
+   08. Menu
+      - Image
+   09. Event
+      - Image
+      - Booking Form
+      - Text
+   10. Footer     
+      - Logo
+      - Contact/Location
+      - Social Media
+/* _____________________________________
+
+/* _____________________________________
+
+   01. General Styles
+   _____________________________________ */
+
+/* -------------
+  Reset
+-------------*/
+
+   body {
+      margin: 0;
+      padding: 0;
+      color: #58595B;
+      font-family: 'Georgia';
+   }
+
+   h1, h2, h3, h4, {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia';
+   }
+
+   p {
+      color: #58595B;
+      font-family: 'Palatino';
+   }
+
+
+/* -------------
+  Global
+-------------*/
+
+   /*------------ General ------------*/
+
+   .hidden {
+      display: none;
+   }
+
+   .border-tb {
+      border-top: 2px solid #008A46;
+      border-bottom: 2px solid #008A46;
+      padding-top: 1em;
+      padding-bottom: 1em;
+   }
+
+   .margin-top {
+      margin-top: 5em;
+   }
+
+   .margin-top2 {
+      margin-top: 2em;
+   }
+
+   .border-top {
+      border-top: 2px solid #008A46;
+   }
+
+   .border-bottom {
+      border-bottom: 2px solid #008A46;;
+   }
+
+   .margin-left {
+      margin-left: .5em;
+   }
+
+   input {
+      padding: .4em;
+      border: 1px solid black;
+      background-color: white;
+      width: 180px;
+      height: 16px;
+      margin-bottom: .5em;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+   }
+   
+   textarea {
+      padding: .4em;
+      border: 1px solid black;
+      background-color: white;
+      width: 180px;
+      height: 110px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+   }
+
+   input[type="submit"] {
+      width: 5.5em;
+      height: 2em;
+      background-color: #008A46;
+      color: #fff;
+      border: none;
+      float: right;
+      margin-top: 7.3em;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+   }
+
+   input[name="search"] {
+      width: 71em;
+      height: 4em;
+      background-color: white;
+      color: #939598;
+      padding-left: 1.5em;
+      margin: 1.6em 2em 1.6em 2em;
+      border: none;
+      border-radius: 15px;
+      float: left;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+   }
+
+   button {
+      width: 68px;
+      height: 4em;
+      background-color: white;
+      color: #939598;
+      border-radius: 15px;
+      margin-top: 1.6em;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+   }
+
+
+   /*------------ End General ------------*/
+
+   /*------------ Floats ------------*/
+
+   .f-left {
+      float: left;
+   }
+
+   /*------------ End Floats ------------*/
+
+   /*------------ Brand Colours ------------*/
+   /*------------ End Brand Colours ------------*/
+   
+   /*------------ Head Styling ------------*/
+
+
+   .h3-style {
+      color: #008A46;
+      margin-bottom: .25em;
+      font-size: 15px
+   }
+   .h3-style-2 {
+      font-size: 25px;
+   }
+
+   /*------------ End Head Styling ------------*/
+
+   /*------------ Font Awesome ------------*/
+
+   .fas1 {
+      margin: 1em .2em .4em 0em;
+      font-size: 3em;
+      color: #008A46;
+   }
+
+   .fas2 {
+      margin: 1em .2em .4em .6em;
+      font-size: 3em;
+      color: #008A46;
+   }
+
+   /*------------ End Font Awesome ------------*/
+
+
+/* _____________________________________
+
+   02. CSS Grid
+   _____________________________________ */
+
+   @supports (grid-area: auto) {
+
+      .site {
+         max-width: none;
+      }
+
+      /*------------ Grid Items ------------*/
+
+      .head {
+         display: grid;
+			grid-template-columns: 1fr repeat(1, minmax(auto, 30em)) 1fr;
+      }
+
+      .main > *, .foot {
+         display: grid;
+			grid-template-columns: 1fr repeat(2, minmax(auto, 30em)) 1fr;
+      }
+
+      .one-item {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: 1fr;
+      }
+
+      .two-items {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: repeat(2, 1fr);
+         justify-content: space-evenly;
+      }
+
+      .four-items {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: repeat(4, 1fr);
+         justify-content: space-evenly;
+         row-gap: 2em;
+         column-gap: 2em;
+      }
+
+      .five-items {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: repeat(5, 1fr);
+         justify-content: space-evenly;
+         row-gap: 2em;
+         column-gap: 2em;
+         padding-bottom: 3em;
+         border-bottom: 2px solid #008A46;
+      }
+
+      .h3-grid {
+         grid-column: 2 / span 2;
+      }
+
+      .h3-grid2 {
+         grid-column: 2
+      }
+
+      .h3-grid3 {
+         grid-column: 3;
+      }
+
+      .f-grid {
+         grid-column: 1 / span 1;
+      }
+
+      .e-grid {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: 1fr 20em 1fr 20em;
+         justify-content: space-evenly;
+      }
+
+
+      /*------------ End Grid Items ------------*/
+
+/* _____________________________________
+
+   03. Site Header
+   _____________________________________ */
+
+
+      header {
+         position: sticky;
+         top: 0em;
+         background-color: #fff;
+         border-bottom: 1px solid #e6e6e6;
+         box-shadow: 0px 5px 8px #888;
+      }
+
+      .logo {
+         grid-column: 2;
+         padding-left: 7em;
+      }
+
+      .logo img {
+         width: 80%;
+      }
+
+      /*------------ Start Nav Styling ------------*/
+
+      .nav {
+         grid-column: 1 / span 4;
+         margin: 0;
+      }
+
+      nav ul {
+         font-family: Palatino !important;
+         font-size: larger;
+         margin: 0;
+         padding: 0em 2.5em 1em;
+         text-decoration: none;
+         text-align: center;
+      }
+
+      nav li {
+         display: inline;
+         margin-right: 200px;
+      } 
+
+      nav li:last-child {
+         margin-right: 0em;
+      }
+
+      nav li a {
+         text-decoration: none;
+         color: #58595B;
+         font-size: inherit;
+      }
+
+      nav li a:hover {
+         padding-bottom: .5em;
+         border-bottom: 3px solid #008A46;
+      }
+
+      nav li a.active {
+         padding-bottom: .5em;
+         border-bottom: 3px solid #008A46;
+      }
+   
+      /*------------- End Site Header ------------*/
+
+/* _____________________________________
+
+   04. Hero
+   _____________________________________ */
+
+      .hero {
+         margin: 0 0;
+      }
+
+      .hero-img img {
+         width: 100%;
+      }
+
+      .hero-img {
+         display: grid;
+         grid-column: span 4;
+      }
+
+      .hero-img > * {
+         grid-column: 1;
+         grid-row: 1;
+      }
+
+      /*------------ Title Styles ------------*/
+
+      .hero-img .left {
+         width: 68em;
+         height: 6em;
+         background-color: #008A46;
+         align-self: flex-end;
+         justify-self: center;
+         border-radius: 20px;
+         margin-bottom: 5em;
+      }
+
+
+*/
+      /*------------ End Hero ------------*/
+
+
+/* _____________________________________
+
+   05. Review
+   _____________________________________ */
+      
+      .review-img {
+         margin: 0 0;
+      }
+   
+      .review-img img {
+         width: 130px;
+         height: 130px;
+         margin-right: 1.8em;
+         float: left;
+      }
+
+      .review-img2 {
+         margin-left: 1em;
+      }
+
+      .r-para {
+         padding: 1.3em 1em 1.5em 0em;
+         border-right: 2px solid #008A46;
+         text-align: justify;
+      }
+
+      .r-para2 {
+         margin:  2.2em 0em 1.9em 0em;
+         text-align: justify;
+      }
+
+
+/* _____________________________________
+
+   06. FAQ
+   _____________________________________ */
+      
+   .faq {
+      background-color: #f4f4f4;
+      padding: 4em 0em 6em 0em;
+   }
+
+   .faq-items {
+      color: inherit;
+   }
+
+   .faq-items h4 {
+      background-color: #E6E7E8;
+      padding: 0.65em;
+      margin: .7em 0em 0em 0em;
+      font-size: 1.4em;
+   }
+
+   .faq-icons img {
+      width: 16px;
+      padding-right: .2em;
+   }
+
+   .faq-items ul {
+      background-color: #D1D3D4;
+      padding: .5em 1em;
+      margin: 1em 1em;
+   }
+
+   .faq-items li {
+      list-style-position: inside;
+   }
+
+   .faq-items a {
+      color: inherit;
+      text-decoration: none;
+      font-size: .85em;
+   }
+
+
+/*  06. Contact & Location / Ask Form  */
+
+   .contact-para {
+      margin-top: 3em;
+      font-size: medium;
+   }
+
+   .contact-para2 {
+      margin-top: 3em;
+      font-size: medium;
+      padding-right: .6em;
+      border-right: 2px solid #008A46;
+   }
+
+   .contact-text1 {
+      margin: 3em .5em;
+      font-size: medium;
+   }
+
+   .contact-text2 {
+      font-size: x-small;
+   }
+   
+   
+/* _____________________________________
+
+   07. Book
+   _____________________________________ */
+
+   .book-icon1 {
+      width: 80%;
+      margin: 2em 0em 1em 0em;
+   }
+
+   .book-icon2 {
+      width: 80%;
+      margin: 2em 0em 1em 1.2em;
+   }
+
+   .book-icon3 {
+      width: 80%;
+      margin: 2em 0em 1em 1.7em;
+   }
+
+   .book-icon4 {
+      width: 80%;
+      margin: 2em 0em 1em 2.75em;
+   }
+      
+/* _____________________________________
+
+   08. Menu
+   _____________________________________ */
+
+   .menu-img {
+      margin: 0 0;
+   }
+
+   .menu-img img {
+      width: 150px;
+      height: 150px;
+   }
+
+   .menu-img h4 {
+      margin: .5em 1em 0em 2.3em;
+      font-size: larger;
+   }
+
+   .mi1 {
+      margin: 0em 0em 0em .5em;
+   }
+
+   .mi2 {
+      margin: 0em 0em 0em 1em;
+   }
+
+   .menu-text1 {
+      margin: .5em 0em 0em 2.9em !important;
+   }
+
+   .menu-text2 {
+      margin: .5em 0em 0em 1.4em !important;
+   }
+
+   .menu-text3 {
+      margin: .5em 0em 0em 1.7em !important;
+   }
+
+   .menu-text4 {
+      margin: .5em 0em 0em 2.6em !important
+   }
+   
+
+/* _____________________________________
+
+   09. Events
+   _____________________________________ */
+
+   .event-img {
+      margin: 0 0;
+   }
+
+   .event-img img {
+      width: 130px;
+      height: 130px;
+   }
+
+   .event-img2 {
+      margin-left: .5em;
+   }
+
+   .event-text1 {
+      font-size: small;
+      text-align: justify;
+      padding-right: 1.2em;
+      margin-top: 1.7em;
+      margin-right: .5em;
+      border-right: 2px solid #008A46;
+
+   }
+
+   .event-text2 {
+      font-size: small;
+      text-align: justify;
+      margin-top: 1.7em;
+   }
+   
+   .event-text3 {
+      font-size: x-small;
+      float: right;
+   }
+
+   .e-booking {
+      width: 100px;
+      height: 40px;
+      background-color: #008A46;
+      margin: 2em 0em 0em 13em;
+      border-radius: 10px;
+   }
+
+
+   .e-booking a {
+      color: white;
+      text-decoration: none;
+      font-size: medium;
+   }
+
+   .e-booking a h4 {
+      margin: .6em 1em .6em 1em;
+      text-shadow: 2px 2px #58595B;
+   }
+
+
+/* _____________________________________
+
+   10. Footer
+   _____________________________________ */
+      
+   footer {
+      margin-top: 2em;
+      background-color: #A7A9AC;
+      color: #fff;
+   }
+
+   .footer-box {
+      background-color: #808285;
+      margin: 1em;
+      height: 15em;
+   }
+
+   .f-logo1 {
+      grid-column: 2;
+      padding-left: 1em;
+   }
+
+   .f-logo2 {
+      grid-column: 3;
+   }
+
+   .f-logo1 img {
+      width: 60%;
+   }
+
+   .f-logo2 img {
+      width: 80%;
+      margin-top: 1em;
+   }
+
+   .f-para {
+      border-left: 2px solid #008A46;
+      padding-left: 1.5em;
+   }
+
+   .footer-box p {
+      color: white;
+   }
+
+   .social {
+      margin: 0em .1em 0em .4em;
+   }
+
+   .social a img {
+      width: 24%;
+      margin: 0;
+   }
+
+   .copyright {
+      border-top: 2px solid #008A46;
+      font-size: .75em;
+      text-align: right;
+   }
+
+
+   }

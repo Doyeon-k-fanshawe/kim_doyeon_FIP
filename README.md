@@ -1,10 +1,13 @@
-![images](images/making_website_image.jpg "making website")
+![images](images/read_making_website_image.jpg "making website")
 
-# Making Three Pages Websites!
+# FIP
+Create three pages basic websites.
+
+## Making Three Pages Websites!
 
 TODO: Creating three pages website and well-written readme file and then uploading all files on the Github repository.
 
-## Contributing
+### Contributing
 
 1. Fork it!
 2. Create **your feature branch**: `git checkout -b my-new-feature`
@@ -12,9 +15,6 @@ TODO: Creating three pages website and well-written readme file and then uploadi
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit **a pull request** :D
 
-### Credits
-Doyeon Kim
-
-#### License
+### License
 
 MIT
